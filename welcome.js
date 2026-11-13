@@ -1,13 +1,12 @@
 /* =====================================================================
    MGY WELCOME GATE  (welcome.js)
    Load it in <head> (no defer) so the shop never flashes before the gate.
-   Display-only: nothing is registered. The "password" is cosmetic, NOT security.
+   Display-only: nothing is registered. Any non-empty password lets you in (there is no real login).
    ===================================================================== */
 (function(){
 /* ---------------- EDIT ME ---------------- */
 const CONFIG={
  launch:'2026-12-05T18:00:00+01:00',   // countdown target (Lagos time = +01:00). Past date => shows 00
- password:'misguided',                 // cosmetic only - anyone can read this in the page source
  instagram:'misguidedyutes',           // handle without @
  logo:'img/welcome/log1.webp',       // the crest in the middle (spins around and around)
  /* backdrop video. Put the file at this path. If it is missing/blocked, the photo flicker below is used instead. */
@@ -77,11 +76,12 @@ function build(){
   $('#wMail').style.opacity=.5;$('#wEmail').disabled=true;
   setTimeout(()=>toEnter(),1300)});
 
- /* password: display only */
+ /* password: display only - ANY non-empty password is accepted */
  $('#wPwBtn').addEventListener('click',()=>{$('#wGate').classList.add('pw');$('#wPass').focus()});
  $('#wPw').addEventListener('submit',e=>{e.preventDefault();
-  if($('#wPass').value.trim().toLowerCase()==CONFIG.password.toLowerCase()){$('#wMsg').textContent='Access granted.';setTimeout(toEnter,700)}
-  else bad($('#wPw'),'Wrong password.')});
+  if(!$('#wPass').value.trim())return bad($('#wPw'),'Enter a password.');
+  $('#wMsg').textContent='Welcome in.';$('#wPass').disabled=true;
+  setTimeout(toEnter,900)});
 
  $('#wGo').addEventListener('click',enter);
 
