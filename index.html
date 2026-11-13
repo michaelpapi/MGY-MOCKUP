@@ -213,6 +213,8 @@ dialog .go{background:var(--ink);color:var(--bone);width:100%;padding:13px;font-
 [data-theme=dark] dialog .go{background:var(--red);color:#fff}
 [data-theme=dark] #toast{background:#000;color:var(--ink)}
 </style>
+<link rel="stylesheet" href="welcome.css">
+<script src="welcome.js"></script>
 <script>
 /* apply saved (or system) theme before first paint so there's no flash */
 try{var t=localStorage.getItem('mgyTheme');if(!t)t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';document.documentElement.dataset.theme=t}catch(e){}
