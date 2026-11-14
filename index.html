@@ -27,7 +27,7 @@ img{display:block;max-width:100%}
 header{position:sticky;top:0;z-index:50;background:var(--bone);border-bottom:var(--line)}
 .bar{max-width:var(--max);margin:auto;padding:8px var(--pad);display:flex;align-items:center;gap:20px}
 .brand{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none}
-.brand img{height:46px;width:auto}
+.brand img{height:46px;width:auto;filter:drop-shadow(0 2px 3px #0003)}
 .wm{font-size:24px;line-height:1;white-space:nowrap}
 nav{display:flex;gap:4px;margin-left:auto}
 nav button{padding:8px 12px;font-weight:600;font-size:14px;border-bottom:3px solid transparent}
@@ -46,7 +46,7 @@ nav button:hover,nav button.on{border-bottom-color:var(--gold)}
 .lb-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:stretch}
 .stagewrap{display:flex;flex-direction:column;gap:12px;min-width:0}
 .stage{position:relative;height:clamp(440px,66vh,680px);overflow:hidden;border:2px solid var(--olive);background:#262626;touch-action:pan-y}
-.stage::before{content:'';position:absolute;inset:6% 4%;background:url(img/welcome/log1.webp) center 14%/contain no-repeat;opacity:.16;pointer-events:none}
+.stage::before{content:'';position:absolute;inset:6% 4%;background:url(img/welcome/log3.webp) center 14%/contain no-repeat;opacity:.16;pointer-events:none}
 .model{position:absolute;bottom:0;left:50%;height:92%;width:auto;max-width:none;cursor:pointer;
 transform:translateX(calc(-50% + var(--d)*62%)) scale(calc(1 - var(--a)*.18));transform-origin:bottom;
 filter:blur(calc(var(--a)*2.5px));opacity:calc(1 - var(--a)*.42);transition:transform .7s cubic-bezier(.2,.7,.2,1),filter .7s,opacity .7s}
@@ -199,7 +199,7 @@ dialog .go{background:var(--ink);color:var(--bone);width:100%;padding:13px;font-
 [data-theme=dark] .full:hover{background:var(--ink);border-color:var(--ink);color:var(--red)}
 
 /* shop */
-[data-theme=dark] .shop::before{background-image:url(img/welcome/log1.webp);opacity:.06}
+[data-theme=dark] .shop::before{background-image:url(img/welcome/log3.webp);opacity:.06}
 [data-theme=dark] .item{background:#121212}
 [data-theme=dark] :is(.piece .ph,.item .ph,.ci .ph){background:var(--ph)}
 [data-theme=dark] .tag{background:#000;color:var(--ink);border:1px solid #3a3a3a}
@@ -226,7 +226,7 @@ try{var t=localStorage.getItem('mgyTheme');if(!t)t=matchMedia('(prefers-color-sc
 <header>
  <div class="bar">
   <a class="brand" href="#lookbook" aria-label="Misguided Yutes home">
-   <img src="img/welcome/log1.webp" alt="">
+   <img src="img/welcome/log3.webp" alt="Misguided Yutes" width="46" height="46">
    <span class="wm grunge">MISGUIDED YUTES</span>
   </a>
   <nav id="nav" aria-label="Shop categories"></nav>
@@ -273,7 +273,7 @@ try{var t=localStorage.getItem('mgyTheme');if(!t)t=matchMedia('(prefers-color-sc
 </div></section>
 
 <footer>
- <img src="img/welcome/log1.webp" alt="Misguided Yutes">
+ <img src="img/welcome/log3.webp" alt="Misguided Yutes">
  <p>© MGY — Misguided Yutes. Orders are confirmed and paid on WhatsApp.</p>
 </footer>
 

@@ -8,7 +8,7 @@
 const CONFIG={
  launch:'2026-12-05T18:00:00+01:00',   // countdown target (Lagos time = +01:00). Past date => shows 00
  instagram:'misguidedyutes',           // handle without @
- logo:'img/welcome/log1.webp',       // the crest in the middle (spins around and around)
+ logo:'img/welcome/log3.webp',       // the logo in the middle (spins around and around)
  /* backdrop video. Put the file at this path. If it is missing/blocked, the photo flicker below is used instead. */
  video:'img/welcome/vid1.mp4',
  poster:'',                            // optional still image shown while the video loads, e.g. 'img/welcome/vid1.jpg'
@@ -38,7 +38,7 @@ function build(){
   <a class="w-ig" href="https://instagram.com/${CONFIG.instagram}" target="_blank" rel="noopener">${IG}<span>@${CONFIG.instagram}</span></a>
   <div class="w-main">
    <div class="w-eyebrow">MISGUIDED YUTES · DROP 01</div>
-   <div class="w-logo"><div class="w-spin"><img src="${CONFIG.logo}" alt="Misguided Yutes crest"><img src="${CONFIG.logo}" alt="" aria-hidden="true"></div></div>
+   <div class="w-logo"><div class="w-spin"><img src="${CONFIG.logo}" alt="Misguided Yutes"><img src="${CONFIG.logo}" alt="" aria-hidden="true"></div></div>
 
    <div class="w-gate" id="wGate">
     <p class="w-h">Join email list for early access</p>
