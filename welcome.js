@@ -1,7 +1,7 @@
 /* =====================================================================
    MGY WELCOME GATE  (welcome.js)
    Load it in <head> (no defer) so the shop never flashes before the gate.
-   Display-only: nothing is registered. Any non-empty password lets you in (there is no real login).
+   Display-only: nothing is registered. Any valid-looking email lets you in (there is no real signup).
    ===================================================================== */
 (function(){
 /* ---------------- EDIT ME ---------------- */
@@ -48,11 +48,6 @@ function build(){
      <button>Subscribe</button>
     </form>
     <p class="w-msg" id="wMsg"></p>
-    <button class="w-link" id="wPwBtn" type="button">Enter using<br>password</button>
-    <form class="w-form w-pass" id="wPw" novalidate>
-     <input type="password" id="wPass" placeholder="Password" autocomplete="off" aria-label="Password">
-     <button>Enter</button>
-    </form>
    </div>
 
    <div class="w-enter">
@@ -75,13 +70,6 @@ function build(){
   $('#wMsg').textContent="You're on the list.";
   $('#wMail').style.opacity=.5;$('#wEmail').disabled=true;
   setTimeout(()=>toEnter(),1300)});
-
- /* password: display only - ANY non-empty password is accepted */
- $('#wPwBtn').addEventListener('click',()=>{$('#wGate').classList.add('pw');$('#wPass').focus()});
- $('#wPw').addEventListener('submit',e=>{e.preventDefault();
-  if(!$('#wPass').value.trim())return bad($('#wPw'),'Enter a password.');
-  $('#wMsg').textContent='Welcome in.';$('#wPass').disabled=true;
-  setTimeout(toEnter,900)});
 
  $('#wGo').addEventListener('click',enter);
 

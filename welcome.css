@@ -56,19 +56,20 @@ html.gated body>*:not(#welcome):not(script):not(svg){visibility:hidden}
 .w-count span{font:400 12px/1 'Space Mono',monospace;letter-spacing:.08em;color:#cfcdc6;text-transform:lowercase}
 
 .w-form{display:flex;width:100%;max-width:360px}
-.w-form input{flex:1;min-width:0;background:#fff;color:#111;border:0;padding:13px 12px;font-size:15px}
-.w-form input::placeholder{color:#8b8b8b}
+/* email box: white field, BLACK typed text.
+   Prefixed with #welcome so it beats the "#welcome input{color:inherit}" reset above
+   (that reset was making the typed text near-white on a white box = invisible). */
+#welcome .w-form input{flex:1;min-width:0;background:#fff;color:#000;-webkit-text-fill-color:#000;caret-color:#000;border:0;padding:13px 12px;font-size:15px}
+#welcome .w-form input::placeholder{color:#8b8b8b;-webkit-text-fill-color:#8b8b8b;opacity:1}
+/* browser autofill: keep it white with black text instead of the yellow/blue autofill tint */
+#welcome .w-form input:-webkit-autofill,
+#welcome .w-form input:-webkit-autofill:focus{-webkit-text-fill-color:#000;box-shadow:0 0 0 1000px #fff inset;caret-color:#000}
+#welcome .w-form input:disabled{color:#000;-webkit-text-fill-color:#000;opacity:1}
 .w-form button{background:#000;color:#fff;padding:0 18px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;font-size:14px;border:1px solid #333;border-left:0}
 .w-form button:hover{background:#d7141f;border-color:#d7141f}
 .w-form.bad{animation:wshake .35s}
 @keyframes wshake{25%{transform:translateX(-7px)}75%{transform:translateX(7px)}}
 .w-msg{min-height:18px;font:400 12px/1.3 'Space Mono',monospace;letter-spacing:.06em;color:#cfcdc6}
-
-.w-link{font-weight:600;letter-spacing:.12em;text-transform:uppercase;font-size:14px;line-height:1.4;padding:6px 10px;transition:color .2s}
-.w-link:hover{color:#d7141f}
-.w-pass{display:none}
-.w-gate.pw .w-pass{display:flex}
-.w-gate.pw .w-link{display:none}
 
 .w-go{font:700 clamp(15px,4.2vw,18px)/1 'Space Mono',monospace;letter-spacing:.14em;text-transform:uppercase;padding:14px 20px;transition:letter-spacing .25s,color .2s}
 .w-go:hover{letter-spacing:.22em;color:#d7141f}
@@ -83,3 +84,4 @@ html.gated body>*:not(#welcome):not(script):not(svg){visibility:hidden}
 @media(prefers-reduced-motion:reduce){
  .w-spin{animation:none}.w-bg.glitch{animation:none}
  .w-gate>*,.w-enter>*{animation:none}#welcome{transition:none}}
+ 
